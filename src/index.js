@@ -3,10 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import CategoryListContextProvider from './contexts/CategoryListContextProvider';
+import ProductListContextProvider from './contexts/ProductListContextProvider';
+import CartListContextProvider from './contexts/CartListContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CategoryListContextProvider>
+      <ProductListContextProvider>
+        <CartListContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartListContextProvider>
+      </ProductListContextProvider>
+    </CategoryListContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
