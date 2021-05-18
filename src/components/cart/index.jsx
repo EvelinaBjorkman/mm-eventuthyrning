@@ -8,30 +8,9 @@ import { CartListContext } from '../../contexts/CartListContextProvider';
 
 export default function Cart() {
 
-  // let cartList = [];
   const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem("CartList")));
 
-  // const cartList = useContext(CartListContext);
-
-  // const [products, setProducts] = useState([]);
-
-  // function addProduct(product) {
-  //   const tempProductsArr = [...products];
-  //   tempProductsArr.push(product);
-  //   setProducts(tempProductsArr);
-  //   console.log(products);
-  // }
-
-  // function getProduct(item) {
-  //   console.log("getProduct");
-  //   const url = `https://event-rentals.herokuapp.com/api/product/${item}`;
-  //   fetch(url)
-  //   .then(res => res.json())
-  //   .then(data => addProduct(data));
-  // }
-
   window.addEventListener("storage", () => {
-    console.log("storage change");
     setCartList(JSON.parse(localStorage.getItem("CartList")));
   })
 
@@ -67,12 +46,7 @@ export default function Cart() {
 
   useEffect(() => {
     setCartList(localStorage.getItem("CartList") ? JSON.parse(localStorage.getItem("CartList")) : []);
-    // {cartList && cartList.forEach(item => {
-    //   console.log(item);
-    //   // getProduct(item);
-    // })}
     window.addEventListener("storage", () => {
-      console.log("storage change");
       setCartList(JSON.parse(localStorage.getItem("CartList")));
     })
     //eslint-disable-next-line

@@ -5,7 +5,7 @@ import { SytledH1 } from '../components/typografy';
 export default function ServicesPage() {
   return (
     <div>
-      <SytledH1>ServicesPage</SytledH1>
+      <SytledH1>Våra tjänster</SytledH1>
       <ServicesList/>
     </div>
   )

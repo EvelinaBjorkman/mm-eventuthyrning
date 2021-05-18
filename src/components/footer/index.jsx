@@ -11,24 +11,17 @@ export default function Footer() {
       <div>
         <ul>
           <li><h3>Våra tjänster</h3></li>
-          <li><a>Tjänst</a></li>
-          <li><a>Tjänst</a></li>
-          <li><a>Tjänst</a></li>
-          <li><a>Tjänst</a></li>
+          <li><a href="/tjanster">Leverans</a></li>
+          <li><a href="/tjanster">Montering</a></li>
+          <li><a href="/tjanster">Städning</a></li>
         </ul>
         <ul>
           <li><h3>Våra produkter</h3></li>
-          {/* {categoryList.map(category => {
+          {categoryList && categoryList.map(category => {
             return (
-              <li key={category.id}><a>{category.name}</a></li>
+              <li key={category.id}><a href={`/produkter/${category.id}`}>{category.name}</a></li>
             )
-          })} */}
-        </ul>
-        <ul>
-          <li><h3>Om oss</h3></li>
-          <li><a>Om oss</a></li>
-          <li><a>Om oss</a></li>
-          <li><a>Om oss</a></li>
+          })}
         </ul>
       </div>
       <div>

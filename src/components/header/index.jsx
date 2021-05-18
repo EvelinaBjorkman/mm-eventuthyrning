@@ -28,17 +28,20 @@ export default function Header() {
 
   function handleCartClick() {
     cartOpenStatus ? setCartOpenStatus(false) : setCartOpenStatus(true);
-    // cartRef.classList.remove("hide");
-    // ReactDOM.findDOMNode(this.cartRef).classList.remove("hide");
   }
+
+  document.addEventListener('click', function (e) {
+    if(!e.target.classList.contains('sc-hKgILt lpolGI') && !e.target.classList.contains('pointer')) {
+      setCartOpenStatus(false);
+    }
+  });
 
   return (
     <StyledHeader>
       <a href="/"><h1 className="logoHeader">M&M</h1></a>
       <StyledNav>
-        <a>Menu 1</a>
-        <a>Menu 2</a>
-        <a>Menu 3</a>
+        <a href="/produkter">Produkter</a>
+        <a href="/tjanster">Tjänster</a>
         <a onClick={handleCartClick} className="pointer">Korg</a>
         {cartOpenStatus ? (<Cart/>) : null }
         <a href="/profil">Profil</a>

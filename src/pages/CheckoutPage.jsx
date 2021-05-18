@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckoutCart from '../components/checkoutCart';
-import CheckoutServices from '../components/checkoutServices';
 import { StandardWrapper } from '../components/sections/style';
 import { StyledServiceWrapper, StyledCheckBoxSextion } from '../components/checkoutServices/style';
-import { StyledH2 } from '../components/typografy'
+import { StyledH2 } from '../components/typografy';
 import { StyledButton } from '../components/button/style';
+
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from '../components/pay/CheckoutForm';
+import { StyledPaySection } from '../components/pay/style';
+
+const promise = loadStripe("pk_test_51IhBfXILV0iEsAeqDklFLFgKfL5tYXEzM464YQYJpe7gks9brwTgaMybVvgassFyvQ2C9iTzT05z7Xm5FCF5qyoR00bOfoXzJk");
 
 export default function CheckoutPage() {
 
@@ -14,6 +20,7 @@ export default function CheckoutPage() {
   const userToken = localStorage.getItem("UserToken");
   let productIds = [];
   const [servicesList, setServicesList] = useState([]);
+  const [rental, setRental] = useState();
 
   function getProductIds() {
     let cartList = JSON.parse(localStorage.getItem("CartList"));
@@ -80,31 +87,22 @@ export default function CheckoutPage() {
   function handleBookClick() {
     const userToken = localStorage.getItem("UserToken");
 
-    // if (localStorage.getItem("UserToken")) {
-      // getId(location.pathname);
+    const payload = {
+      "rentDate": getChosenDate(),
+      "products": getProducts(chosenServicesList)
+    }
 
-      const payload = {
-        "rentDate": getChosenDate(),
-        "products": getProducts(chosenServicesList)
-      }
-
-      const url = "https://event-rentals.herokuapp.com/api/rental";
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${userToken}`
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(res => res.json())
-      .then(data => console.log(data));
-
-    // } else {
-    //   if (window.confirm("Vänligen logga in för att boka en vara")) {
-    //     window.location.href = "/login";
-    //   }
-    // }
+    const url = "https://event-rentals.herokuapp.com/api/rental";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${userToken}`
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => setRental(data));
   }
 
   useEffect(() => {
@@ -113,7 +111,6 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     getServices();
-    // console.log(chosenServicesList);
     getTotalPrice();
     // eslint-disable-next-line
   }, [])
@@ -121,20 +118,16 @@ export default function CheckoutPage() {
   
   return (
     <div>
-      {/* <SytledH1>Checkout</SytledH1> */}
       <StandardWrapper>
         <StyledH2>Din korg</StyledH2>
         <CheckoutCart/>
       </StandardWrapper>
-      {/* <CheckoutServices/> */}
       <StyledServiceWrapper>
         <div className="standardWidth">
           <h2>Tjänster</h2>
           <p>Välj till övriga tjänster till din beställning!</p>
           <StyledCheckBoxSextion>
-            {/* {console.log(servicesList)} */}
             {servicesList && servicesList.map((service) => {
-            //  console.log(service.name);
             return(
               <form key={service.name}>
                 <input type="checkbox" name={service.name} value={service.price} onChange={(e) => handleCheckboxChange(e, service)}/>
@@ -150,8 +143,19 @@ export default function CheckoutPage() {
         <h2>{totalPrice} kr</h2>
       </StandardWrapper>
       <StandardWrapper>
-        <StyledButton onClick={handleBookClick}>Boka</StyledButton>
+        {!rental && 
+        <StyledButton onClick={handleBookClick}>Boka</StyledButton>}
       </StandardWrapper>
+      {rental && 
+        <StandardWrapper>
+          <StyledPaySection>
+            <Elements stripe={promise}>
+              <CheckoutForm rental={rental}/>
+            </Elements>
+          </StyledPaySection>
+        </StandardWrapper>
+      }
+      
     </div>
   )
 }

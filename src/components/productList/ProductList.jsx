@@ -1,6 +1,8 @@
-import React, { useContext, useEffect } from 'react'
-import { ProductListContext } from '../../contexts/ProductListContextProvider'
+import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { ProductListContext } from '../../contexts/ProductListContextProvider';
+
 import { StyledLink } from '../link/style';
 import { StyledCard } from '../productCard/style';
 import { StyledSectionCards } from '../sectionForCards/style'
@@ -12,7 +14,6 @@ export default function ProductList({category}) {
   const {productList, setProductList} = useContext(ProductListContext);
 
   function getProductList() {
-    
     const url = `https://event-rentals.herokuapp.com/api/category/${id}`;
     fetch(url)
     .then(res => res.json())

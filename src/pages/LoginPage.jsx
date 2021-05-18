@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import { StyledButtonMini } from '../components/button/style'
 import { StyledForm } from '../components/form/style'
 import { WrapperDevided } from '../components/sections/style'
@@ -13,12 +14,10 @@ export default function LoginPage() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // const [userData, setUSerData] = useState();
   const [token, setToken] = useState(localStorage.getItem("UserToken") || "");
 
   function saveTokenInLocalStorage(token) {
     localStorage.setItem('UserToken', token);
-    console.log(localStorage.getItem('UserToken'));
   }
 
   function handleRegister() {
@@ -38,11 +37,10 @@ export default function LoginPage() {
       body: JSON.stringify(payload)
     })
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(() => window.location.href = "/profil");
   }
 
   function handleLogin() {
-
     const payload = {
       "email": loginEmail,
       "password": loginPassword

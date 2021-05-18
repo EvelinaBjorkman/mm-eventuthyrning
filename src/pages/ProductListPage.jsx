@@ -5,7 +5,6 @@ import { SytledH1 } from '../components/typografy';
 
 export default function ProductListPage() {
   let id = "";
-
   const location = useLocation();
 
   const [ category, setCategory ] = useState({});

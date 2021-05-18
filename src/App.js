@@ -1,7 +1,4 @@
-// import logo from './logo.svg';
-// import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Cart from './components/cart/index.jsx';
 import Footer from './components/footer/index.jsx';
 import Header from './components/header/index.jsx';
 import CategoryListPage from './pages/CategoryListPage.jsx';
@@ -12,13 +9,17 @@ import ProductListPage from './pages/ProductListPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 import StartPage from './pages/StartPage.jsx';
+import SuccessPage from './pages/SuccessPage.jsx';
 
 function App() {
   return (
     <div>
       <Header/>
-      {/* <Cart/> */}
       <Switch>
+
+        <Route path="/success/:rentalId">
+          <SuccessPage/>
+        </Route>
 
         <Route path="/produkter/:categoryId">
           <ProductListPage/>

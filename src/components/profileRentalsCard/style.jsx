@@ -22,4 +22,15 @@ export const StyledProfileRentalCard = styled.div`
 export const StyledProfileProductsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 20px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    max-height: 150px;
+  }
 `;

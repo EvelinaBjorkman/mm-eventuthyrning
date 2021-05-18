@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { StyledButton } from '../components/button/style';
-import { CheckoutCartCard } from '../components/checkoutCart/style';
 import { StyledProfileProductsWrapper, StyledProfileRentalCard } from '../components/profileRentalsCard/style';
 import { StandardWrapper, WrapperDevided } from '../components/sections/style';
 import { SytledH1 } from '../components/typografy'
@@ -35,7 +34,6 @@ export default function ProfilePage() {
     })
     .then(res => res.json())
     .then(data => setRentals(data));
-    // console.log(rentals);
   }
 
   useEffect(() => {
@@ -57,22 +55,20 @@ export default function ProfilePage() {
         </WrapperDevided>
         <StandardWrapper>
           {rentals && rentals.map(rental => {
-            console.log(rental);
             return(
-                <StyledProfileRentalCard key={rental.rentalDate}>
-                  <p>{rental.rentalDate[0]}-{rental.rentalDate[1]}-{rental.rentalDate[2]} | <b>{rental.totalPrice}</b>:-</p>
-                  {console.log(rental.products)}
-                  <StyledProfileProductsWrapper>
-                    {rental.products.map(product => {
-                      return (
-                        <div key={product.id}>
-                          <h3>{product.product.name} | {product.quantity}st</h3>
-                          <img src={`/images/products/${product.product.categoryName}/${product.product.imageUrl}`}/>
-                        </div>
-                      )
-                    })}
-                  </StyledProfileProductsWrapper>
-                </StyledProfileRentalCard>
+              <StyledProfileRentalCard key={rental.id}>
+                <p>{rental.rentalDate[0]}-{rental.rentalDate[1]}-{rental.rentalDate[2]} | <b>{rental.totalPrice}</b>:-</p>
+                <StyledProfileProductsWrapper>
+                  {rental.products.map(product => {
+                    return (
+                      <div key={product.id}>
+                        <h3>{product.product.name} | {product.quantity}st</h3>
+                        <img src={`/images/products/${product.product.categoryName}/${product.product.imageUrl}`} alt=""/>
+                      </div>
+                    )
+                  })}
+                </StyledProfileProductsWrapper>
+              </StyledProfileRentalCard>
             )
           })}
         </StandardWrapper>

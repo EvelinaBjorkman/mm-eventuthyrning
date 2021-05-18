@@ -14,6 +14,7 @@ export const ServiceItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 100px;
+  align-items: center;
 
   &:nth-child(even) {
     flex-direction: row-reverse;

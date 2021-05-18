@@ -11,7 +11,7 @@ export default function DescribedProduct({product}) {
       <StyledProductInfoWrapper>
         <StyledH2>{product.name}</StyledH2>
         <p dangerouslySetInnerHTML={{ __html: product.description }}></p>
-        <p><b>{product.price}:-</b> / dag</p>
+        <p><b>{product.price}:-</b></p>
       </StyledProductInfoWrapper>
     </StyledSection>
   )

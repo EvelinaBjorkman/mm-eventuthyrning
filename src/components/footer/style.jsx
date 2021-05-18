@@ -41,6 +41,11 @@ export const StyledFooter = styled.footer`
   a {
     display: block;
     font-size: 25px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   p {

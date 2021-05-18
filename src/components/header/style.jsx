@@ -21,6 +21,11 @@ export const StyledHeader = styled.header`
 
   a {
     color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 

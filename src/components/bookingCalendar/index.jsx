@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from "react-dom";
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 
@@ -20,7 +19,6 @@ export default function BookingCalendar({product}) {
 
   const [dateList, setDateList] = useState();
 
-  // const todaysDate = moment().format('YYYY-MM-DD');
   const year = moment().year();
 
   const [monthInt, setMonthInt] = useState();
@@ -37,9 +35,7 @@ export default function BookingCalendar({product}) {
       "toDate": toDate
     }
     const url = `https://event-rentals.herokuapp.com/api/product/${id}/available`;
-    // console.log(payload);
     if(fromDate !== "Invalid date" && toDate !== "Invalid date") {
-      // console.log("fromDate: " + fromDate + " toDate: " + toDate);
       fetch(url, {
         method: "POST",
         headers: {
@@ -50,7 +46,6 @@ export default function BookingCalendar({product}) {
       .then(res => res.json())
       .then(data => setDateList(data));
     }
-    
   }
 
   function getId(str) {
@@ -65,9 +60,7 @@ export default function BookingCalendar({product}) {
   useEffect(() => {
     setMonth(monthList[monthInt]);
     let startDate = moment([year, monthInt]).format('YYYY-MM-DD');
-    // console.log(startDate);
     let endDate = moment(startDate).endOf('month').format('YYYY-MM-DD');
-    // console.log(endDate);
     getId(location.pathname);
     checkAvailability(startDate, endDate);
   }, [monthInt])
@@ -93,41 +86,6 @@ export default function BookingCalendar({product}) {
     }
   }
 
-  // function handleBookClick() {
-  //   const userToken = localStorage.getItem("UserToken");
-
-  //   if (localStorage.getItem("UserToken")) {
-  //     getId(location.pathname);
-
-  //     const payload = {
-  //       "rentDate": chosenDate,
-  //       "products": [
-  //         {
-  //           "productId": id,
-  //           "quantity": chosenQty
-  //         }
-  //       ]
-  //     }
-
-  //     const url = "https://event-rentals.herokuapp.com/api/rental";
-  //     fetch(url, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Authorization": `Bearer ${userToken}`
-  //       },
-  //       body: JSON.stringify(payload)
-  //     })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-
-  //   } else {
-  //     if (window.confirm("Vänligen logga in för att boka en vara")) {
-  //       window.location.href = "/login";
-  //     }
-  //   }
-  // }
-
   function addToCart() {
     let cartList = [];
 
@@ -136,7 +94,6 @@ export default function BookingCalendar({product}) {
     }
     if(cartList.length > 0) {
       if(cartList[0].chosenDate == chosenDate) {
-        // console.log(cartList[0].chosenDate);
         cartList.push({product, chosenQty, chosenDate});
         localStorage.setItem("CartList", JSON.stringify(cartList));
       } else {

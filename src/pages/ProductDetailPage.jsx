@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
+
 import DescribedProduct from '../components/describedProduct';
 import BookingCalendar from '../components/bookingCalendar';
 
@@ -27,6 +28,8 @@ export default function ProductDetailPage() {
   function getProduct() {
     getId(location.pathname);
 
+    
+    //check if product is fetched, else fetch product
     if(Object.keys(product).length === 0) {
       getProductList();
     }
