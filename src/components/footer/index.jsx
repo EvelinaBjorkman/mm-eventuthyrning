@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CategoryListContext } from '../../contexts/CategoryListContextProvider';
 import { StyledFooter } from './style';
 
@@ -11,15 +12,15 @@ export default function Footer() {
       <div>
         <ul>
           <li><h3>Våra tjänster</h3></li>
-          <li><a href="/tjanster">Leverans</a></li>
-          <li><a href="/tjanster">Montering</a></li>
-          <li><a href="/tjanster">Städning</a></li>
+          <li><Link to="/tjanster">Leverans</Link></li>
+          <li><Link to="/tjanster">Montering</Link></li>
+          <li><Link to="/tjanster">Städning</Link></li>
         </ul>
         <ul>
           <li><h3>Våra produkter</h3></li>
           {categoryList && categoryList.map(category => {
             return (
-              <li key={category.id}><a href={`/produkter/${category.id}`}>{category.name}</a></li>
+              <li key={category.id}><Link to={`/produkter/${category.id}`}>{category.name}</Link></li>
             )
           })}
         </ul>

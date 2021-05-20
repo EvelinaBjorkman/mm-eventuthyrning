@@ -63,7 +63,7 @@ export default function ProfilePage() {
                     return (
                       <div key={product.id}>
                         <h3>{product.product.name} | {product.quantity}st</h3>
-                        <img src={`/images/products/${product.product.categoryName}/${product.product.imageUrl}`} alt=""/>
+                        <img src={`./images/products/${product.product.categoryName}/${product.product.imageUrl}`} alt=""/>
                       </div>
                     )
                   })}
@@ -78,7 +78,7 @@ export default function ProfilePage() {
     return (
       <StandardWrapper>
         <SytledH1>Vänligen logga in för att se dina beställningar</SytledH1>
-        <StyledButton href="/login">Login</StyledButton>
+        <StyledButton to="/login">Login</StyledButton>
       </StandardWrapper>
     )
   }

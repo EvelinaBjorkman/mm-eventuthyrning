@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <StyledHeroDiv>
       <StyledHeroText>Hyr dina måsten till festen!<br/>Med bara några knapptryck</StyledHeroText>
-      <StyledButton href="/tjanster">Se våra tjänster</StyledButton>
+      <StyledButton to="/tjanster">Se våra tjänster</StyledButton>
     </StyledHeroDiv>
   )
 }

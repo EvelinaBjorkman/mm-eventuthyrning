@@ -14,9 +14,12 @@ export const StyledSection = styled.section`
 
 export const StyledImgWrapper = styled.div`
    width: 50%;
+   max-height: 300px;
 
    img {
      width: 100%;
+    max-height: 300px;
+    object-fit: contain;
    }
 `;
 

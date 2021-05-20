@@ -8,7 +8,7 @@ export default function SuccessPage() {
     <div>
       <StandardWrapper>
         <SytledH1>Tack för din beställning!</SytledH1>
-        <StyledButton href="/profil">Till mina bokningar</StyledButton>
+        <StyledButton to="/profil">Till mina bokningar</StyledButton>
       </StandardWrapper>
     </div>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../cart';
 import { StyledHeader, StyledNav } from './style';
 
@@ -16,10 +17,10 @@ export default function Header() {
     if(localStorage.getItem("UserToken")) {
       localStorage.clear();
       loginStatus = "Logga in";
-      window.location.href = "/";
+      window.location.href = "/mm-eventuthyrning";
       
     } else {
-      window.location.href = "/login";
+      window.location.href = "/mm-eventuthyrning/login";
       loginStatus = "Logga ut";
     }
   }
@@ -38,13 +39,16 @@ export default function Header() {
 
   return (
     <StyledHeader>
-      <a href="/"><h1 className="logoHeader">M&M</h1></a>
+      <Link to="/"><h1 className="logoHeader">M&M</h1></Link>
       <StyledNav>
-        <a href="/produkter">Produkter</a>
-        <a href="/tjanster">Tjänster</a>
+        <Link to="/produkter">Produkter</Link>
+        {/* <a href="/produkter">Produkter</a> */}
+        <Link to="/tjanster">Tjänster</Link>
+        {/* <a href="/tjanster">Tjänster</a> */}
         <a onClick={handleCartClick} className="pointer">Korg</a>
         {cartOpenStatus ? (<Cart/>) : null }
-        <a href="/profil">Profil</a>
+        <Link to="/profil">Profil</Link>
+        {/* <a href="/profil">Profil</a> */}
         <a onClick={handleClick} >{loginStatus}</a>
       </StyledNav>
     </StyledHeader>

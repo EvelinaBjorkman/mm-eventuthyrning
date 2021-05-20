@@ -44,7 +44,7 @@ export default function CheckoutCart() {
       {cartList.map(product => {
         return(
           <CheckoutCartCard key={product.product.id}>
-            <img src={`/images/products/${product.product.categoryName}/${product.product.imageUrl}`}/>
+            <img src={`../images/products/${product.product.categoryName}/${product.product.imageUrl}`}/>
             <div>
               <FontAwesomeIcon icon={faTimes} onClick={() => handleDelete(product.product)} className="pointer"></FontAwesomeIcon>
               <p>{product.product.name}</p>

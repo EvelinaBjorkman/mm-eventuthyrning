@@ -13,7 +13,7 @@ ReactDOM.render(
     <CategoryListContextProvider>
       <ProductListContextProvider>
         <CartListContextProvider>
-          <BrowserRouter>
+          <BrowserRouter basename="/mm-eventuthyrning">
             <App />
           </BrowserRouter>
         </CartListContextProvider>

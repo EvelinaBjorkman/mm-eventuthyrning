@@ -6,7 +6,7 @@ export default function DescribedProduct({product}) {
   return (
     <StyledSection>
       <StyledImgWrapper>
-        <img src={`/images/products/${product.categoryName}/${product.imageUrl}`}/>
+        <img src={`../images/products/${product.categoryName}/${product.imageUrl}`}/>
       </StyledImgWrapper>
       <StyledProductInfoWrapper>
         <StyledH2>{product.name}</StyledH2>

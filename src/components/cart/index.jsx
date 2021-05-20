@@ -58,7 +58,7 @@ export default function Cart() {
         {cartList && cartList.map(product => {
           return(
             <CartCard key={product.product.id}>
-              <img src={`/images/products/${product.product.categoryName}/${product.product.imageUrl}`} />
+              <img src={`../images/products/${product.product.categoryName}/${product.product.imageUrl}`} />
               <div>
                 <FontAwesomeIcon icon={faTimes} onClick={() => handleDelete(product.product)} className="pointer"></FontAwesomeIcon>
                 <p>{product.product.name}</p>
@@ -72,7 +72,7 @@ export default function Cart() {
           )
         })}
       </div>
-      <StyledButtonMini href="/kassa">Till kassan</StyledButtonMini>
+      <StyledButtonMini to="/kassa">Till kassan</StyledButtonMini>
     </CartWrapper>
   )
 }

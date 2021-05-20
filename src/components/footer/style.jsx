@@ -42,6 +42,7 @@ export const StyledFooter = styled.footer`
     display: block;
     font-size: 25px;
     text-decoration: none;
+    color: ${pallet.colorPop};
 
     &:hover {
       text-decoration: underline;

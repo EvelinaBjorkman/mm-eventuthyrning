@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { colorPop } from '../variables';
 
-// import heroImg from '/images/'
-
 export const StyledHeroDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -11,7 +9,7 @@ export const StyledHeroDiv = styled.div`
   height: 90vh;
   width: 100%;
   // background: pink;
-  background-image: url("/images/konfetti.jpg");
+  background-image: url("images/konfetti.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;

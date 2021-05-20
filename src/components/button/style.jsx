@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { shadow } from '../mixins';
 
 import * as pallet from '../variables';
 
-export const StyledButton = styled.a`
+export const StyledButton = styled(Link)`
   background: ${pallet.colorPopSecondary};
   color: black;
   text-decoration: none;

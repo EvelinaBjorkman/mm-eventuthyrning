@@ -41,7 +41,7 @@ export default function ProductList({category}) {
         return (
           <StyledLink to={`/produkt/${product.id}`} key={product.id}>
             <StyledCard>
-              <img src={`/images/products/${product.categoryName}/${product.imageUrl}`} style={{width: "100%", maxHeight: "80%"}}/>
+              <img src={`../images/products/${product.categoryName}/${product.imageUrl}`} style={{width: "100%", maxHeight: "80%"}}/>
               <h2>{product.name}</h2>
             </StyledCard>
           </StyledLink>

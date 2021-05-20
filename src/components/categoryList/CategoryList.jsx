@@ -28,7 +28,7 @@ export default function CategoryList() {
         return (
           <StyledLink to={`/produkter/${category.id}`} key={category.id}>
             <StyledCard>
-              <img src={`/images/categories/${category.imageUrl}`} style={{width: "100%", maxHeight: "80%"}}/>
+              <img src={`images/categories/${category.imageUrl}`} style={{width: "100%", maxHeight: "80%"}}/>
               <h2>{category.name}</h2>
             </StyledCard>
           </StyledLink>

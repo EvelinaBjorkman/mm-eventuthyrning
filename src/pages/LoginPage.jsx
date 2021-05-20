@@ -37,7 +37,7 @@ export default function LoginPage() {
       body: JSON.stringify(payload)
     })
     .then(res => res.json())
-    .then(() => window.location.href = "/profil");
+    .then(() => window.location.href = "/mm-eventuthyrning/profil");
   }
 
   function handleLogin() {
@@ -56,7 +56,7 @@ export default function LoginPage() {
     })
     .then(res => res.json())
     .then(data => setToken(data.jwt))
-    .then(() => window.location.href = "/profil");
+    .then(() => window.location.href = "/mm-eventuthyrning/profil");
   }
 
   useEffect(() => {
