@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mm-eventuthyrning/static/css/main.87bff1ea.chunk.css",
-    "main.js": "/mm-eventuthyrning/static/js/main.171f5f1a.chunk.js",
-    "main.js.map": "/mm-eventuthyrning/static/js/main.171f5f1a.chunk.js.map",
+    "main.js": "/mm-eventuthyrning/static/js/main.6671e6a9.chunk.js",
+    "main.js.map": "/mm-eventuthyrning/static/js/main.6671e6a9.chunk.js.map",
     "runtime-main.js": "/mm-eventuthyrning/static/js/runtime-main.6f00daad.js",
     "runtime-main.js.map": "/mm-eventuthyrning/static/js/runtime-main.6f00daad.js.map",
     "static/js/2.f2426d0c.chunk.js": "/mm-eventuthyrning/static/js/2.f2426d0c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6f00daad.js",
     "static/js/2.f2426d0c.chunk.js",
     "static/css/main.87bff1ea.chunk.css",
-    "static/js/main.171f5f1a.chunk.js"
+    "static/js/main.6671e6a9.chunk.js"
   ]
 }
